@@ -16,98 +16,98 @@ describe('Tamagotchi', () => {
     expect(tamagotchi.foodLevel).toBe(10);
   });
 
-  test('should check that food level is decremented every minute', () => {
+  test('should check that food level is decremented every 10 seconds', () => {
     tamagotchi.getHungry();
-    jest.advanceTimersByTime(1000 * 60 + 1);
+    jest.advanceTimersByTime(1000 * 10 + 1);
     expect(tamagotchi.foodLevel).toBe(9);
   });
 
-  test('should decrement sleep level after every 30min', () => {
+  test('should decrement sleep level after every 10 seconds', () => {
     tamagotchi.getTired();
-    jest.advanceTimersByTime(1000 * 60 + 1);
+    jest.advanceTimersByTime(1000 * 10 + 1);
     expect(tamagotchi.sleep).toBe(9);
   });
 
-  test('should check that happiness is decremented every hour', () => {
+  test('should check that happiness is decremented every 10 seconds', () => {
     tamagotchi.getSad();
-    jest.advanceTimersByTime(1000 * 60 + 1);
+    jest.advanceTimersByTime(1000 * 10 + 1);
     expect(tamagotchi.happiness).toBe(8);
   });
 
   test('should refill tamagotchi food level', () => {
     tamagotchi.getHungry();
-    jest.advanceTimersByTime(1000 * 60 + 1);
+    jest.advanceTimersByTime(1000 * 10 + 1);
     tamagotchi.feed();
     expect(tamagotchi.foodLevel).toBe(10);
   });
 
-  test('should stay busy for 2min after feeding', () => {
+  test('should stay busy for 15 seconds after feeding', () => {
     tamagotchi.feed();
     expect(tamagotchi.busy).toBe(true);
-    jest.advanceTimersByTime(1000*60*2 +1);
+    jest.advanceTimersByTime(1000*15 +1);
     expect(tamagotchi.busy).toBe(false);
   });
 
   test('should refill tamagotchi sleep level', () => {
     tamagotchi.getTired();
-    jest.advanceTimersByTime(1000 * 60 + 1);
+    jest.advanceTimersByTime(1000 * 10 + 1);
     tamagotchi.bedTime();
     expect(tamagotchi.sleep).toBe(10);
   });
 
-  test('should stay asleep for 2 min', () => {
+  test('should stay asleep for 15 seconds', () => {
     tamagotchi.bedTime();
     expect(tamagotchi.busy).toBe(true);
-    jest.advanceTimersByTime(1000*60*2 +1);
+    jest.advanceTimersByTime(1000*15 +1);
     expect(tamagotchi.busy).toBe(false);
   });
 
   test('should check that play() refills happiness', () => {
     tamagotchi.getSad();
-    jest.advanceTimersByTime(1000 * 60 + 1);
+    jest.advanceTimersByTime(1000 * 10 + 1);
     tamagotchi.play();
     expect(tamagotchi.happiness).toBe(10);
   });
 
-  test('should check whether tamagotchi is busy for 2min after playing', () => {
+  test('should check whether tamagotchi is busy for 15 seconds after playing', () => {
     tamagotchi.play();
     expect(tamagotchi.busy).toBe(true);
-    jest.advanceTimersByTime(1000*60*2 +1);
+    jest.advanceTimersByTime(1000*15 +1);
     expect(tamagotchi.busy).toBe(false);
   });
 
   test('should prevent feed methods from triggering if busy', () => {
     tamagotchi.getHungry();
-    jest.advanceTimersByTime(1000*60 + 1);
+    jest.advanceTimersByTime(1000*10 + 1);
     tamagotchi.bedTime();
     tamagotchi.feed();
     expect(tamagotchi.busy).toBe(true);
     expect(tamagotchi.foodLevel).toBe(9);
-    jest.advanceTimersByTime(1000*60*2 +1);
+    jest.advanceTimersByTime(1000*15 +1);
     tamagotchi.feed();
     expect(tamagotchi.foodLevel).toBe(10);
   });
 
   test('should prevent bedtime method from triggering if busy', () => {
     tamagotchi.getTired();
-    jest.advanceTimersByTime(1000*60 +1);
+    jest.advanceTimersByTime(1000*10 +1);
     tamagotchi.feed();
     tamagotchi.bedTime();
     expect(tamagotchi.busy).toBe(true);
     expect(tamagotchi.sleep).toBe(9);
-    jest.advanceTimersByTime(1000*60*2 +1);
+    jest.advanceTimersByTime(1000*15 +1);
     tamagotchi.bedTime();
     expect(tamagotchi.sleep).toBe(10);
   });
 
   test('should prevent play method from triggering if busy', () => {
     tamagotchi.getSad();
-    jest.advanceTimersByTime(1000*60+1);
+    jest.advanceTimersByTime(1000*10+1);
     tamagotchi.bedTime();
     tamagotchi.play();
     expect(tamagotchi.busy).toBe(true);
     expect(tamagotchi.happiness).toBe(8);
-    jest.advanceTimersByTime(1000*60*2 +1);
+    jest.advanceTimersByTime(1000*15 +1);
     tamagotchi.play();
     expect(tamagotchi.happiness).toBe(10);
   });
@@ -115,18 +115,18 @@ describe('Tamagotchi', () => {
   test('should kill tamagotchi when two of three status bars are 0', () => {
     tamagotchi.getHungry();
     tamagotchi.getSad();
-    jest.advanceTimersByTime(1000*60*10 +1);
+    jest.advanceTimersByTime(1000*10*10 +1);
     tamagotchi.checkAlive();
-    jest.advanceTimersByTime(1000*30 +1);
+    jest.advanceTimersByTime(1000 +1);
     expect(tamagotchi.alive).toBe(false);
   });
 
   test('should check that user cannot feed, play with, or rest tamagotchi after it dies', () => {
     tamagotchi.getHungry();
     tamagotchi.getSad();
-    jest.advanceTimersByTime(1000*60*10 +1);
+    jest.advanceTimersByTime(1000*10*10 +1);
     tamagotchi.checkAlive();
-    jest.advanceTimersByTime(1000*30 +1);
+    jest.advanceTimersByTime(1000 +1);
     tamagotchi.feed();
     expect(tamagotchi.foodLevel).toBe(0);
   });
