@@ -12,6 +12,8 @@ export class Tamagotchi {
   }
 
   getTired() {
-    
+    setInterval(() => {
+      this.sleep -= 1;
+    }, 1000 * 60 * 30);
   }
 }
