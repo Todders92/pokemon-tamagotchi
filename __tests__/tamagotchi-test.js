@@ -1,4 +1,5 @@
 import { Tamagotchi } from '../src/tamagotchi.js';
+import { reset } from '../src/functions.js';
 
 describe('Tamagotchi', () => {
   jest.useFakeTimers();
@@ -130,12 +131,12 @@ describe('Tamagotchi', () => {
     tamagotchi.feed();
     expect(tamagotchi.foodLevel).toBe(0);
   });
-  test('should allow the user to reset if tamagotchi dies', () => {
-    tamagotchi.alive = false;
-    tamagotchi.reset();
-    expect(tamagotchi.alive).toBe(true);
-    expect(tamagotchi.foodLevel).toBe(10);
-    expect(tamagotchi.sleep).toBe(10);
-    expect(tamagotchi.happiness).toBe(10);
+
+  test('should delete old tamagotchi and make new tamagotchi', ()=> {
+    reset(tamagotchi);
+    expect(tamagotchi).toBeUndefined();
+    expect(newTamagotchi.foodLevel).toBe(10);
+    expect(newTamagotchi.sleep).toBe(10);
+    expect(newTamagotchi.happiness).toBe(10);
   });
 });

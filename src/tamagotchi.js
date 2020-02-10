@@ -72,14 +72,14 @@ export class Tamagotchi {
     }, 1000*60);
   }
 
-  reset() {
-    this.alive = true;
-    this.happiness = 10;
-    this.foodLevel = 10;
-    this.sleep = 10;
-    for(let i = 0; i < 100; i++) {
-      window.clearInterval(i);
-    }
-  }
+  // reset() {
+  //   this.alive = true;
+  //   this.happiness = 10;
+  //   this.foodLevel = 10;
+  //   this.sleep = 10;
+  //   for(let i = 0; i < 100; i++) {
+  //     window.clearInterval(i);
+  //   }
+  // }
 
 }
