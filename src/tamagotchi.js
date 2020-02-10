@@ -9,7 +9,7 @@ export class Tamagotchi {
   getHungry() {
     setInterval(() => {
       this.foodLevel -= 1;
-    }, 1000 * 60);
+    }, 1000 * 60 * 60);
   }
 
   getTired() {
