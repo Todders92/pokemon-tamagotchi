@@ -134,8 +134,8 @@ describe('Tamagotchi', () => {
     tamagotchi.alive = false;
     tamagotchi.reset();
     expect(tamagotchi.alive).toBe(true);
-    expect(tamgotchi.foodLevel).toBe(10);
-    expect(tamgotchi.sleep).toBe(10);
-    expect(tamgotchi.happiness).toBe(10);
+    expect(tamagotchi.foodLevel).toBe(10);
+    expect(tamagotchi.sleep).toBe(10);
+    expect(tamagotchi.happiness).toBe(10);
   });
 });
