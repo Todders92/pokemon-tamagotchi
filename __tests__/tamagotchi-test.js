@@ -20,5 +20,11 @@ describe('Tamagotchi', () => {
     tamagotchi.getHungry();
     jest.advanceTimersByTime(1000 * 60 + 1);
     expect(tamagotchi.foodLevel).toBe(9);
-  })
+  });
+
+  test('should decrement sleep level after every 30min', () => {
+    tamagotchi.getTired();
+    jest.advanceTimersByTime(1000 * 60 * 30 + 1);
+    expect(tamagotchi.sleep).toBe(9);
+  });
 });
