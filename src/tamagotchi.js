@@ -28,6 +28,6 @@ export class Tamagotchi {
   }
 
   bedTime() {
-    
+    this.sleep = 10;
   }
 }
