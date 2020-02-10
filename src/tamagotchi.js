@@ -27,4 +27,7 @@ export class Tamagotchi {
     this.foodLevel = 10;
   }
 
+  bedTime() {
+    
+  }
 }

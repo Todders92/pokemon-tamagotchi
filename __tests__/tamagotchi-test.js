@@ -40,4 +40,11 @@ describe('Tamagotchi', () => {
     tamagotchi.feed();
     expect(tamagotchi.foodLevel).toBe(10);
   });
+
+  test('should refill tamagotchi sleep level', () => {
+    tamagotchi.getTired();
+    jest.advanceTimersByTime(1000 * 60 * 30 + 1);
+    tamagotchi.bedTime();
+    expect(tamagotchi.sleep).toBe(10);
+  })
 });
