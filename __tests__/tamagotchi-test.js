@@ -99,4 +99,16 @@ describe('Tamagotchi', () => {
     tamagotchi.bedTime();
     expect(tamagotchi.sleep).toBe(10);
   });
+
+  test('should prevent play method from triggering if busy', () => {
+    tamagotchi.getSad();
+    jest.advanceTimersByTime(1000*60*60+1);
+    tamagotchi.bedTime();
+    tamagotchi.play();
+    expect(tamagotchi.busy).toBe(true);
+    expect(tamagotchi.happiness).toBe(8);
+    jest.advanceTimersByTime(1000*60*30 +1);
+    tamagotchi.play();
+    expect(tamagotchi.happiness).toBe(10);
+  })
 });
