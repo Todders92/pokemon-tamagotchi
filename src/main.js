@@ -4,6 +4,14 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
+function updateStatus(Tamagotchi) {
+  setInterval(function() {
+    $("#foodDiv .progress-bar").attr('style', `width: ${Tamagotchi.foodLevel*10}%`);
+    $("#sleepDiv .progress-bar").attr('style', `width: ${Tamagotchi.sleep*10}%`);
+    $("#sadDiv .progress-bar").attr('style', `width: ${Tamagotchi.happiness*10}%`);
+  }, 1000);
+}
+
 $(document).ready(function() {
   let choice;
   let img;
@@ -33,7 +41,7 @@ $(document).ready(function() {
     $("#choices").hide();
     $("#game").show();
     $("#choiceImg").attr('src', img);
-
+    updateStatus(tamagotchi);
     tamagotchi.getHungry();
     tamagotchi.getSad();
     tamagotchi.getTired();
