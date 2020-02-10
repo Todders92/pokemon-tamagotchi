@@ -22,4 +22,9 @@ export class Tamagotchi {
       this.happiness -= 2;
     }, 1000 * 60 * 60);
   }
+
+  feed() {
+    
+  }
+
 }

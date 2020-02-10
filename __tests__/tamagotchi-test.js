@@ -32,5 +32,12 @@ describe('Tamagotchi', () => {
     tamagotchi.getSad();
     jest.advanceTimersByTime(1000 * 60 * 60 + 1);
     expect(tamagotchi.happiness).toBe(8);
-  })
+  });
+
+  test('should refill tamagotchi food level', () => {
+    tamagotchi.getHungry();
+    jest.advanceTimersByTime(1000 * 60 + 1);
+    tamagotchi.feed();
+    expect(tamagotchi.foodLevel).toBe(10);
+  });
 });
