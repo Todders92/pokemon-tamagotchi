@@ -67,5 +67,12 @@ describe('Tamagotchi', () => {
     jest.advanceTimersByTime(1000 * 60 * 60 + 1);
     tamagotchi.play();
     expect(tamagotchi.happiness).toBe(10);
-  })
+  });
+
+  test('should check whether tamagotchi is busy for 15min after playing', () => {
+    tamagotchi.play();
+    expect(tamagotchi.busy).toBe(true);
+    jest.advanceTimersByTime(1000*60*15 +1);
+    expect(tamagotchi.busy).toBe(false);
+  });
 });
