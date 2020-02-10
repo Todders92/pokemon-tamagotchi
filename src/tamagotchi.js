@@ -40,5 +40,11 @@ export class Tamagotchi {
     }, 1000*60*30);
   }
 
-  
+  play() {
+    this.happiness = 10;
+    this.busy = true;
+    setTimeout(() => {
+      this.busy = false;
+    }, 1000*60*15);
+  }  
 }
