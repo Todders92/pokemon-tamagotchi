@@ -6,6 +6,8 @@ export class Tamagotchi {
     this.happiness = 10;
   }
   getHungry() {
-    
+    setInterval(() => {
+      this.foodLevel -= 1;
+    }, 1000 * 60);
   }
 }
