@@ -7,22 +7,28 @@ export class Tamagotchi {
     this.busy = false;
     this.alive = true;
   }
-  
+
   getHungry() {
     setInterval(() => {
-      this.foodLevel -= 1;
+      if(this.foodLevel > 0) {
+        this.foodLevel -= 1;
+      }
     }, 1000 * 60 * 60);
   }
 
   getTired() {
     setInterval(() => {
-      this.sleep -= 1;
+      if(this.sleep > 0) {
+        this.sleep -= 1;
+      }
     }, 1000 * 60 * 30);
   }
 
   getSad() {
     setInterval(() => {
-      this.happiness -= 2;
+      if(this.happiness > 0) {
+        this.happiness -= 2;
+      }
     }, 1000 * 60 * 60);
   }
 
@@ -54,5 +60,17 @@ export class Tamagotchi {
         this.busy = false;
       }, 1000*60*15);
     }
-  }  
+  }
+
+  checkAlive() {
+    setInterval(() => {
+      if ((this.sleep === 0 && this.happiness === 0) || (this.sleep === 0 && this.foodLevel === 0) || (this.happiness === 0 && this.foodLevel === 0)) {
+        this.alive = false;        
+      } else {
+        this.alive = true;
+      }
+    }, 1000*60);
+  }
+
+
 }

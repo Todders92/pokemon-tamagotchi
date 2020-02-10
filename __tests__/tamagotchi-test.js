@@ -116,6 +116,10 @@ describe('Tamagotchi', () => {
     tamagotchi.getHungry();
     tamagotchi.getSad();
     jest.advanceTimersByTime(1000*60*60*10 +1);
+    console.log(tamagotchi.foodLevel);
+    console.log(tamagotchi.happiness);
+    tamagotchi.checkAlive();
+    jest.advanceTimersByTime(1000*60 +1);
     expect(tamagotchi.alive).toBe(false);
   });
 });
