@@ -24,7 +24,7 @@ _This application..._
 | User cannot feed tamagothci while sleeping | press sleep | cannot press feed for 30min |
 | When two of the three status bars reach 0, tamagotchi dies | happiness 0% | death |
 |After tamagotchi dies, user cannot feed, sleep, or play with it|press play|sorry, the tamagotchi is dead.|
-|If tamagotchi is dead, user can restart|Tamagotchi = dead, user presses restart|Start with new tamagotchi object|
+|If tamagotchi is dead, user can restart|Tamagotchi = dead, user presses restart|Refill all stats to 10 and revive life of Tamagotchi|
 
 
 ## Setup/Installation Requirements
