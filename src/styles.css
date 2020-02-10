@@ -1,0 +1,22 @@
+#game {
+  display: none;
+}
+
+.clicked {
+  border: 2px solid black;
+}
+
+#game img {
+  margin: auto;
+}
+
+.btn {
+  margin-top: 2%;
+  border: 2px solid #111111;
+  color: #111111;
+}
+
+.btn:hover {
+  background-color: #111111;
+  color: #f5f5f5;
+}

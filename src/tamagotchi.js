@@ -82,4 +82,8 @@ export class Tamagotchi {
     }
   }
 
+  addName(name) {
+    this.name = name;
+  }
+
 }

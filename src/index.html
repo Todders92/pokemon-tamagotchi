@@ -7,6 +7,55 @@
   <title>Tamagotchi</title>
 </head>
 <body>
-  <h1>Tamagotchi</h1>
+  <div class="container">
+    <div id="choices">
+      <h1>Tamagotchi</h1>
+      <div class="row align-items-start">
+        <div id="charmander" class="card col-md-4">
+          <h3>Charmander</h3>
+          <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="A photo of charmander.">
+        </div>
+        <div id="squirtle" class="card col-md-4">
+          <h3>Squirtle</h3>
+          <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" alt="A photo of sqirtle.">
+        </div>
+        <div id="bulbasaur" class="card col-md-4">
+          <h3>Bulbasaur</h3>
+          <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" alt="A photo of bulbasaur.">
+        </div>
+      </div>
+      <div class="row">
+        <button id="start" class="btn btn-block">START GAME</button>
+      </div>
+    </div>
+
+    <div id="game">
+      <div class="row"></div>
+      <div class="row">
+        <img id="choiceImg" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" alt="A photo of bulbasaur.">
+      </div>
+      <div class="row">
+        <div id="foodDiv" class="col-md-4">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+          </div>
+          <button id="feed" class="btn btn-block">Feed</button>
+        </div>
+        <div id="sleepDiv" class="col-md-4">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+          </div>
+          <button id="sleep" class="btn btn-block">Sleep</button>
+        </div>
+        <div id="sadDiv" class="col-md-4">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+          </div>
+          <button id="play" class="btn btn-block">Play</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </body>
 </html>
