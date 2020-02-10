@@ -46,5 +46,12 @@ describe('Tamagotchi', () => {
     jest.advanceTimersByTime(1000 * 60 * 30 + 1);
     tamagotchi.bedTime();
     expect(tamagotchi.sleep).toBe(10);
-  })
+  });
+
+  test('should stay asleep for 30min', () => {
+    tamagotchi.bedTime();
+    expect(tamagotchi.busy).toBe(true);
+    jest.advanceTimersByTime(1000*60*30 +1);
+    expect(tamagotchi.busy).toBe(false);
+  });
 });
