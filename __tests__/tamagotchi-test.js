@@ -76,7 +76,7 @@ describe('Tamagotchi', () => {
     expect(tamagotchi.busy).toBe(false);
   });
 
-  test('should prevent other refill methods from triggering if busy', () => {
+  test('should prevent feed methods from triggering if busy', () => {
     tamagotchi.getHungry();
     jest.advanceTimersByTime(1000*60 + 1);
     tamagotchi.bedTime();

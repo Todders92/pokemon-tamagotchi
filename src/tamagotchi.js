@@ -25,11 +25,13 @@ export class Tamagotchi {
   }
 
   feed() {
-    this.foodLevel = 10;
-    this.busy = true;
-    setTimeout(() => {
-      this.busy = false;
-    }, 1000*60*30);
+    if (this.busy === false) {
+      this.foodLevel = 10;
+      this.busy = true;
+      setTimeout(() => {
+        this.busy = false;
+      }, 1000*60*30);
+    }
   }
 
   bedTime() {
