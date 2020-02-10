@@ -22,7 +22,7 @@ _This application..._
 | Tamagotchi happiness level refills when user presses play button | press play | happiness level 100% |
 | User cannot press play within 30min of pressing the feed button | press feed | cannot press play for 30min |
 | User cannot feed tamagothci while sleeping | press sleep | cannot press feed for 30min |
-| When any of three status bars reach 0, tamagotchi dies | happiness 0% | death |
+| When two of the three status bars reach 0, tamagotchi dies | happiness 0% | death |
 |After tamagotchi dies, user cannot feed, sleep, or play with it|press play|sorry, the tamagotchi is dead.|
 |If tamagotchi is dead, user can restart|Tamagotchi = dead, user presses restart|Start with new tamagotchi object|
 

@@ -5,7 +5,9 @@ export class Tamagotchi {
     this.sleep = 10;
     this.happiness = 10;
     this.busy = false;
+    this.alive = true;
   }
+  
   getHungry() {
     setInterval(() => {
       this.foodLevel -= 1;

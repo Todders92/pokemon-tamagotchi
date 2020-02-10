@@ -110,5 +110,12 @@ describe('Tamagotchi', () => {
     jest.advanceTimersByTime(1000*60*30 +1);
     tamagotchi.play();
     expect(tamagotchi.happiness).toBe(10);
-  })
+  });
+
+  test('should kill tamagotchi when two of three status bars are 0', () => {
+    tamagotchi.getHungry();
+    tamagotchi.getSad();
+    jest.advanceTimersByTime(1000*60*60*10 +1);
+    expect(tamagotchi.alive).toBe(false);
+  });
 });
