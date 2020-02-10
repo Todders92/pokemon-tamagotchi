@@ -41,6 +41,13 @@ describe('Tamagotchi', () => {
     expect(tamagotchi.foodLevel).toBe(10);
   });
 
+  test('should stay busy for 30min after feeding', () => {
+    tamagotchi.feed();
+    expect(tamagotchi.busy).toBe(true);
+    jest.advanceTimersByTime(1000*60*30 +1);
+    expect(tamagotchi.busy).toBe(false);
+  });
+
   test('should refill tamagotchi sleep level', () => {
     tamagotchi.getTired();
     jest.advanceTimersByTime(1000 * 60 * 30 + 1);
