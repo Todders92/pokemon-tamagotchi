@@ -1,16 +1,24 @@
 import { Tamagotchi } from '../src/tamagotchi.js';
 
 describe('Tamagotchi', () => {
+  jest.useFakeTimers();
   let tamagotchi;
   beforeEach(() => {
     tamagotchi = new Tamagotchi();
   });
-  test('should correctly create a Tamagotchi object with zero food, happiness, and sleep levels', () => {
+  afterEach(() => {
+    jest.clearAllTimers();
+  })
+  test('should correctly create a Tamagotchi object with 100% food, happiness, and sleep levels', () => {
     expect(tamagotchi.name).toEqual("");
-    expect(tamagotchi.sleep).toBe(0);
-    expect(tamagotchi.happiness).toBe(0);
-    expect(tamagotchi.foodLevel).toBe(0);
+    expect(tamagotchi.sleep).toBe(10);
+    expect(tamagotchi.happiness).toBe(10);
+    expect(tamagotchi.foodLevel).toBe(10);
   });
 
-  // test('should instantiate a Tama')
+  test('should check that food level is decremented every minute', () => {
+    tamagotchi.getHungry();
+    jest.advanceTimersByTime(1000 * 60 + 1);
+    expect(tamagotchi.foodLevel).toBe(9);
+  })
 });
