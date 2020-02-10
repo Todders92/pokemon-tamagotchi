@@ -35,11 +35,13 @@ export class Tamagotchi {
   }
 
   bedTime() {
-    this.sleep = 10;
-    this.busy = true;
-    setTimeout(() => {
-      this.busy = false;
-    }, 1000*60*30);
+    if (this.busy === false) {
+      this.sleep = 10;
+      this.busy = true;
+      setTimeout(() => {
+        this.busy = false;
+      }, 1000*60*30);
+    }
   }
 
   play() {
