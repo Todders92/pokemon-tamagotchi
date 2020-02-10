@@ -33,7 +33,7 @@ export class Tamagotchi {
   }
 
   feed() {
-    if (this.busy === false) {
+    if (this.busy === false && this.alive === true) {
       this.foodLevel = 10;
       this.busy = true;
       setTimeout(() => {
@@ -43,7 +43,7 @@ export class Tamagotchi {
   }
 
   bedTime() {
-    if (this.busy === false) {
+    if (this.busy === false && this.alive === true) {
       this.sleep = 10;
       this.busy = true;
       setTimeout(() => {
@@ -53,7 +53,7 @@ export class Tamagotchi {
   }
 
   play() {
-    if(this.busy === false) {
+    if(this.busy === false && this.alive === true) {
       this.happiness = 10;
       this.busy = true;
       setTimeout(() => {
