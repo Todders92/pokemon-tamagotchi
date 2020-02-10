@@ -24,7 +24,7 @@ export class Tamagotchi {
   }
 
   feed() {
-    
+    this.foodLevel = 10;
   }
 
 }
