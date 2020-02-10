@@ -12,7 +12,6 @@ _This application..._
 
 | Specification | Example Input | Example Output |
 | ------------- |:-------------:| -------------------:|
-| When user presses start, the webpage creates game object | "start" | new game |
 | Webpage creates new tamagotchi object | player presses start after selecting animal type | new tamagotchi created |
 | Webpage decrements food level every minute | minute passes by | food level one level lower |
 | Webpage decrements sleep level every 30minutes | 30min passes by | sleep level decreases by 1 |
