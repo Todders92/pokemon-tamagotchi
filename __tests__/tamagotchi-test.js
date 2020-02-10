@@ -1,5 +1,4 @@
 import { Tamagotchi } from '../src/tamagotchi.js';
-import { reset } from '../src/functions.js';
 
 describe('Tamagotchi', () => {
   jest.useFakeTimers();
@@ -133,10 +132,12 @@ describe('Tamagotchi', () => {
   });
 
   test('should delete old tamagotchi and make new tamagotchi', ()=> {
-    reset(tamagotchi);
-    expect(tamagotchi).toBeUndefined();
-    expect(newTamagotchi.foodLevel).toBe(10);
-    expect(newTamagotchi.sleep).toBe(10);
-    expect(newTamagotchi.happiness).toBe(10);
+    tamagotchi.foodLevel = 0;
+    tamagotchi.sleep = 0;
+    tamagotchi.happiness = 0;
+    tamagotchi.reset();
+    expect(tamagotchi.foodLevel).toBe(10);
+    expect(tamagotchi.sleep).toBe(10);
+    expect(tamagotchi.happiness).toBe(10);
   });
 });
