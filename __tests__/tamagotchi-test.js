@@ -86,5 +86,17 @@ describe('Tamagotchi', () => {
     jest.advanceTimersByTime(1000*60*30 +1);
     tamagotchi.feed();
     expect(tamagotchi.foodLevel).toBe(10);
-  })
+  });
+
+  test('should prevent bedtime method from triggering if busy', () => {
+    tamagotchi.getTired();
+    jest.advanceTimersByTime(1000*60*30 +1);
+    tamagotchi.feed();
+    tamagotchi.bedTime();
+    expect(tamagotchi.busy).toBe(true);
+    expect(tamagotchi.sleep).toBe(9);
+    jest.advanceTimersByTime(1000*60*30 +1);
+    tamagotchi.bedTime();
+    expect(tamagotchi.sleep).toBe(10);
+  });
 });
