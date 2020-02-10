@@ -13,7 +13,7 @@ export class Tamagotchi {
       if(this.foodLevel > 0) {
         this.foodLevel -= 1;
       }
-    }, 1000 * 60 * 60);
+    }, 1000 * 60);
   }
 
   getTired() {
@@ -21,7 +21,7 @@ export class Tamagotchi {
       if(this.sleep > 0) {
         this.sleep -= 1;
       }
-    }, 1000 * 60 * 30);
+    }, 1000 * 60);
   }
 
   getSad() {
@@ -29,7 +29,7 @@ export class Tamagotchi {
       if(this.happiness > 0) {
         this.happiness -= 2;
       }
-    }, 1000 * 60 * 60);
+    }, 1000 * 60);
   }
 
   feed() {
@@ -38,7 +38,7 @@ export class Tamagotchi {
       this.busy = true;
       setTimeout(() => {
         this.busy = false;
-      }, 1000*60*30);
+      }, 1000*60*2);
     }
   }
 
@@ -48,7 +48,7 @@ export class Tamagotchi {
       this.busy = true;
       setTimeout(() => {
         this.busy = false;
-      }, 1000*60*30);
+      }, 1000*60*2);
     }
   }
 
@@ -58,7 +58,7 @@ export class Tamagotchi {
       this.busy = true;
       setTimeout(() => {
         this.busy = false;
-      }, 1000*60*15);
+      }, 1000*60*2);
     }
   }
 
@@ -69,7 +69,7 @@ export class Tamagotchi {
       } else {
         this.alive = true;
       }
-    }, 1000*60);
+    }, 1000*30);
   }
 
   reset() {
