@@ -116,10 +116,18 @@ describe('Tamagotchi', () => {
     tamagotchi.getHungry();
     tamagotchi.getSad();
     jest.advanceTimersByTime(1000*60*60*10 +1);
-    console.log(tamagotchi.foodLevel);
-    console.log(tamagotchi.happiness);
     tamagotchi.checkAlive();
     jest.advanceTimersByTime(1000*60 +1);
     expect(tamagotchi.alive).toBe(false);
+  });
+
+  test('should check that user cannot feed, play with, or rest tamagotchi after it dies', () => {
+    tamagotchi.getHungry();
+    tamagotchi.getSad();
+    jest.advanceTimersByTime(1000*60*60*10 +1);
+    tamagotchi.checkAlive();
+    jest.advanceTimersByTime(1000*60 +1);
+    tamagotchi.feed();
+    expect(tamagotchi.foodLevel).toBe(0);
   });
 });
