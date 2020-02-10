@@ -27,4 +27,10 @@ describe('Tamagotchi', () => {
     jest.advanceTimersByTime(1000 * 60 * 30 + 1);
     expect(tamagotchi.sleep).toBe(9);
   });
+
+  test('should check that happiness is decremented every hour', () => {
+    tamagotchi.getSad();
+    jest.advanceTimersByTime(1000 * 60 * 60 + 1);
+    expect(tamagotchi.happiness).toBe(9);
+  })
 });
