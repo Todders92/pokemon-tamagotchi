@@ -12,7 +12,20 @@ _This application..._
 
 | Specification | Example Input | Example Output |
 | ------------- |:-------------:| -------------------:|
-|  |  |  |
+| When user presses start, the webpage creates game object | "start" | new game |
+| Webpage creates new tamagotchi object | player presses start after selecting animal type | new tamagotchi created |
+| Webpage decrements food level every minute | minute passes by | food level one level lower |
+| Webpage decrements sleep level every 30minutes | 30min passes by | sleep level decreases by 1 |
+| Webpage decrements tamagothci happiness level when not played with for an hour | hour passes by without pressing play button | happiness level decreases by 1 |
+| When user presses feed button, food level fills up to full | press feed | food level 100% |
+| When user presses the sleep button, sleep level refills | press sleep | sleep level 100% |
+| Tamagotchi stays asleep for 30min | press sleep | tamagothci sleeps |
+| Tamagotchi happiness level refills when user presses play button | press play | happiness level 100% |
+| User cannot press play within 30min of pressing the feed button | press feed | cannot press play for 30min |
+| User cannot feed tamagothci while sleeping | press sleep | cannot press feed for 30min |
+| When any of three status bars reach 0, tamagotchi dies | happiness 0% | death |
+|After tamagotchi dies, user cannot feed, sleep, or play with it|press play|sorry, the tamagotchi is dead.|
+|If tamagotchi is dead, user can restart|Tamagotchi = dead, user presses restart|Start with new tamagotchi object|
 
 
 ## Setup/Installation Requirements
