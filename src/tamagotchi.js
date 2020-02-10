@@ -72,5 +72,8 @@ export class Tamagotchi {
     }, 1000*60);
   }
 
+  reset() {
+    
+  }
 
 }
