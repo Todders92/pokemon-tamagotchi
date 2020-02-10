@@ -16,4 +16,10 @@ export class Tamagotchi {
       this.sleep -= 1;
     }, 1000 * 60 * 30);
   }
+
+  getSad() {
+    setInterval(() => {
+      this.happiness -= 2;
+    }, 1000 * 60 * 60);
+  }
 }
