@@ -1,13 +1,9 @@
 import { Tamagotchi } from './tamagotchi.js';
-import { updateStatus, endGame, displayStats, checkLevel, timePlayed } from './standalone.js';
+import { updateStatus, endGame, displayStats, checkLevel, timePlayed, addPotion } from './standalone.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-
-
-
-// https://pokeapi.co/api/v2/pokemon/squirtle/
 
 $(document).ready(function() {
   let choice;
@@ -138,6 +134,15 @@ $(document).ready(function() {
       displayStats(choice);
       checkLevel(tamagotchi);
       timePlayed(tamagotchi);
+      addPotion(tamagotchi);
+
+      $("#potion").on('click', 'button', function() {
+        console.log(tamagotchi.potions);
+        tamagotchi.usePotion();
+        console.log(tamagotchi.potions);
+        $(this).hide();
+      });
+
       $("#choices").hide();
       $("#game").show();
       $("#choiceImg").attr('src', img);

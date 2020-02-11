@@ -89,3 +89,10 @@ export function timePlayed(Tamagotchi) {
     $("#currentTime").html(Tamagotchi.lifeTime);
   }, 1000);
 }
+
+export function addPotion(Tamagotchi) {
+  setInterval(() => {
+    $("#potion").append("<button class='btn btn-block'></button>");
+    Tamagotchi.potions++;
+  }, 1000);
+}

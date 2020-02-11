@@ -8,6 +8,7 @@ export class Tamagotchi {
     this.alive = true;
     this.level = 1;
     this.lifeTime = 0;
+    this.potions = 1;
   }
 
   getHungry() {
@@ -76,6 +77,15 @@ export class Tamagotchi {
 
   addName(name) {
     this.name = name;
+  }
+
+  usePotion() {
+    if(this.potions > 0) {
+      this.potions--;
+      this.foodLevel = 10;
+      this.sleep = 10;
+      this.happiness = 10;
+    }
   }
 
 }

@@ -134,3 +134,22 @@ h3 {
 #emojis {
   height: 150px;
 }
+
+#potion button.btn {
+  background-image: url("https://vignette.wikia.nocookie.net/pokemongo/images/7/7a/Potion.png/revision/latest/scale-to-width-down/340?cb=20160717150053");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25%;
+  height: 25%;
+  margin-left: 4%;
+}
+
+#potion {
+  max-height: 500px;
+  overflow-y: auto; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
