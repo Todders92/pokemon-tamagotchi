@@ -13,9 +13,10 @@ $(document).ready(function() {
   let choice;
   let img;
   let choiceURL;
+  let secondURL;
+  let thirdURL;
   let prefix;
   let request = new XMLHttpRequest();
-  
   
   $(".card").on("click", function() {
     choice = this.id;
@@ -62,12 +63,77 @@ $(document).ready(function() {
       request.send();
     
       const getElements = function(response) {
+        $(`#${prefix}-name`).html(response.name);
         $(`#${prefix}-type`).html(response.types[0].type.name);
         $(`#${prefix}-weight`).html(response.weight);
         for(let i = 0; i < response.moves.length; i++) {
           $(`#${prefix}-moves`).append(`<li>${response.moves[i].move.name}</li>`);
         }
       };
+
+      setTimeout(() => {
+        let secondRequest = new XMLHttpRequest();
+        if (choice === "squirtle") {
+          secondURL = `https://pokeapi.co/api/v2/pokemon/wartortle/`;
+          prefix = "s";
+        } else if (choice === "charmander") {
+          secondURL = `https://pokeapi.co/api/v2/pokemon/charmeleon/`;
+          prefix = "c";
+        } else if (choice === "bulbasaur") {
+          secondURL = `https://pokeapi.co/api/v2/pokemon/ivysaur/`;
+          prefix = "b";
+        }
+        secondRequest.onreadystatechange = function() {
+          if(this.readyState === 4 && this.status === 200) {
+            const secondResponse = JSON.parse(this.responseText);
+            getSecondElements(secondResponse);
+          }
+        };
+        
+        secondRequest.open("GET", secondURL ,true);
+        secondRequest.send();
+      
+        const getSecondElements = function(secondResponse) {
+          $(`#${prefix}-name`).html(secondResponse.name);
+          $(`#${prefix}-type`).html(secondResponse.types[0].type.name);
+          $(`#${prefix}-weight`).html(secondResponse.weight);
+          for(let i = 0; i < secondResponse.moves.length; i++) {
+            $(`#${prefix}-moves`).append(`<li>${secondResponse.moves[i].move.name}</li>`);
+          }
+        };
+      }, 1000*90);
+
+      setTimeout(() => {
+        let thirdRequest = new XMLHttpRequest();
+        if (choice === "squirtle") {
+          thirdURL = `https://pokeapi.co/api/v2/pokemon/blastoise/`;
+          prefix = "s";
+        } else if (choice === "charmander") {
+          thirdURL = `https://pokeapi.co/api/v2/pokemon/charizard/`;
+          prefix = "c";
+        } else if (choice === "bulbasaur") {
+          thirdURL = `https://pokeapi.co/api/v2/pokemon/venusaur/`;
+          prefix = "b";
+        }
+        thirdRequest.onreadystatechange = function() {
+          if(this.readyState === 4 && this.status === 200) {
+            const thirdResponse = JSON.parse(this.responseText);
+            getThirdElements(thirdResponse);
+          }
+        };
+        
+        thirdRequest.open("GET", thirdURL ,true);
+        thirdRequest.send();
+      
+        const getThirdElements = function(thirdResponse) {
+          $(`#${prefix}-name`).html(thirdResponse.name);
+          $(`#${prefix}-type`).html(thirdResponse.types[0].type.name);
+          $(`#${prefix}-weight`).html(thirdResponse.weight);
+          for(let i = 0; i < thirdResponse.moves.length; i++) {
+            $(`#${prefix}-moves`).append(`<li>${thirdResponse.moves[i].move.name}</li>`);
+          }
+        };
+      }, 1000*190);
 
       displayStats(choice);
       checkLevel(tamagotchi);
