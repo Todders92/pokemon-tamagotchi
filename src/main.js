@@ -80,14 +80,32 @@ $(document).ready(function() {
   
       $("button#feed").click(function() {
         tamagotchi.feed();
+        if (tamagotchi.busy === true) {
+          $("#statuses button").addClass("busy");
+          setTimeout(() => {
+            $("#statuses button").removeClass("busy");
+          }, 1000*2);
+        }
       });
-  
+      
       $("button#sleep").click(function() {
         tamagotchi.bedTime();
+        if (tamagotchi.busy === true) {
+          $("#statuses button").addClass("busy");
+          setTimeout(() => {
+            $("#statuses button").removeClass("busy");
+          }, 1000*2);
+        }
       });
-  
+      
       $("button#play").click(function() {
         tamagotchi.play();
+        if (tamagotchi.busy === true) {
+          $("#statuses button").addClass("busy");
+          setTimeout(() => {
+            $("#statuses button").removeClass("busy");
+          }, 1000*2);
+        }
       });
     }
   });
