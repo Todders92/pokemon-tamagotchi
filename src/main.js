@@ -8,24 +8,33 @@ function updateStatus(Tamagotchi) {
   setInterval(function() {
     if(Tamagotchi.foodLevel < 3) {
       $("#foodDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-danger');
+      $("#mad").show();
     } else if(Tamagotchi.foodLevel <= 6) {
       $("#foodDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-warning');
+      $("#mad").show();
     } else if(Tamagotchi.foodLevel > 6) {
       $("#foodDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-success');
+      $("#mad").hide();
     }
     if(Tamagotchi.sleep < 3) {
       $("#sleepDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-danger');
+      $("#crying").show();
     } else if(Tamagotchi.sleep <= 6) {
       $("#sleepDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-warning');
+      $("#crying").show();
     } else if(Tamagotchi.sleep > 6) {
       $("#sleepDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-success');
+      $("#crying").hide();
     }
     if(Tamagotchi.happiness < 3) {
       $("#sadDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-danger');
+      $("#upset").show();
     } else if(Tamagotchi.happiness <= 6) {
       $("#sadDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-warning');
+      $("#upset").show();
     } else if(Tamagotchi.happiness > 6) {
       $("#sadDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-success');
+      $("#upset").hide();
     }
     $("#foodDiv .progress-bar").attr('style', `width: ${Tamagotchi.foodLevel*10}%`);
     $("#sleepDiv .progress-bar").attr('style', `width: ${Tamagotchi.sleep*10}%`);
@@ -66,32 +75,33 @@ $(document).ready(function() {
   });
   
   $("button#start").click(function() {
-    let tamagotchi = new Tamagotchi();
-    tamagotchi.addName(choice);
-    $("#choices").hide();
-    $("#game").show();
-    $("#choiceImg").attr('src', img);
-    updateStatus(tamagotchi);
-    endGame(tamagotchi);
-    tamagotchi.getHungry();
-    tamagotchi.getSad();
-    tamagotchi.getTired();
-    tamagotchi.checkAlive();
-
-    $("button#feed").click(function() {
-      tamagotchi.feed();
-    });
-
-    $("button#sleep").click(function() {
-      tamagotchi.bedTime();
-    });
-
-    $("button#play").click(function() {
-      tamagotchi.play();
-    });
-
+    if(choice) {
+      let tamagotchi = new Tamagotchi();
+      tamagotchi.addName(choice);
+      $("#choices").hide();
+      $("#game").show();
+      $("#choiceImg").attr('src', img);
+      updateStatus(tamagotchi);
+      endGame(tamagotchi);
+      tamagotchi.getHungry();
+      tamagotchi.getSad();
+      tamagotchi.getTired();
+      tamagotchi.checkAlive();
+  
+      $("button#feed").click(function() {
+        tamagotchi.feed();
+      });
+  
+      $("button#sleep").click(function() {
+        tamagotchi.bedTime();
+      });
+  
+      $("button#play").click(function() {
+        tamagotchi.play();
+      });
+    }
   });
   $("button#reset").click(function() {
-    tamagotchi.reset();
+    window.location.reload();
   });
 });

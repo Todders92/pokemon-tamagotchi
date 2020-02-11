@@ -1,25 +1,38 @@
+html {
+  height: 100%;
+}
+
+body {
+  text-align: center;
+  height: 100%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-image: url("https://pics.freeartbackgrounds.com/midle/Green_Grass_Texture-435.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 #game, #death {
   display: none;
   border: 2px solid #111111;
+  margin-top: 5%;
+  border-radius: 10px;
 }
 
-.clicked {
-  border: 2px solid black;
-}
-
-#game img {
+#choiceImg {
   margin: 10% auto;
 }
 
 .btn {
-  margin-top: 2%;
-  border: 2px solid #111111;
-  color: #111111;
+  margin-top: 4%;
+  background-color: #111111;
+  color: #f5f5f5;
 }
 
 .btn:hover {
-  background-color: #111111;
-  color: #f5f5f5;
+  background-color:#f5f5f5;
+  color: #111111;
+  border: 2px solid #111111;
 }
 
 #statuses {
@@ -27,4 +40,52 @@
   margin-bottom: 5%;
   margin-left: 5%;
   margin-right: 5%;
+}
+
+#choices img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+#choices .row {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.card {
+  background-color: transparent;
+  border: 2px solid #111111;
+  padding: 20px;
+  margin-top: 4%;
+  width: 30%;
+}
+
+.card:hover, .clicked {
+  background-color: #16530e;
+  opacity: 0.9;
+}
+
+h1 {
+  margin-top: 4%;
+  color: #f5f5f5;
+  font-size: 5em;
+}
+
+h3 {
+  color: #f5f5f5;
+  text-decoration: underline;
+}
+
+#death {
+  padding: 20px;
+}
+
+#mad, #crying, #upset {
+  display: none;
+  height: 100px;
+  width: auto;
+  margin: auto;
+  margin-top: 2%;
 }

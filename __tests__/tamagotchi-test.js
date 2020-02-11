@@ -130,14 +130,4 @@ describe('Tamagotchi', () => {
     tamagotchi.feed();
     expect(tamagotchi.foodLevel).toBe(0);
   });
-
-  test('should delete old tamagotchi and make new tamagotchi', ()=> {
-    tamagotchi.foodLevel = 0;
-    tamagotchi.sleep = 0;
-    tamagotchi.happiness = 0;
-    tamagotchi.reset();
-    expect(tamagotchi.foodLevel).toBe(10);
-    expect(tamagotchi.sleep).toBe(10);
-    expect(tamagotchi.happiness).toBe(10);
-  });
 });
