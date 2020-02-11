@@ -39,7 +39,7 @@ function updateStatus(Tamagotchi) {
     $("#foodDiv .progress-bar").attr('style', `width: ${Tamagotchi.foodLevel*10}%`);
     $("#sleepDiv .progress-bar").attr('style', `width: ${Tamagotchi.sleep*10}%`);
     $("#sadDiv .progress-bar").attr('style', `width: ${Tamagotchi.happiness*10}%`);
-  }, 1000);
+  }, 100);
 }
 
 function endGame(Tamagotchi) {
