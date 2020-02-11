@@ -27,7 +27,7 @@ export class Tamagotchi {
   getSad() {
     setInterval(() => {
       if(this.happiness > 0) {
-        this.happiness -= 2;
+        this.happiness -= 1;
       }
     }, 1000 * 2);
   }

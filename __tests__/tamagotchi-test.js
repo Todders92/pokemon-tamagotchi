@@ -28,10 +28,10 @@ describe('Tamagotchi', () => {
     expect(tamagotchi.sleep).toBe(9);
   });
 
-  test('should check that happiness by 2 is decremented every two seconds', () => {
+  test('should check that happiness by 1 is decremented every two seconds', () => {
     tamagotchi.getSad();
     jest.advanceTimersByTime(1000*2 + 1);
-    expect(tamagotchi.happiness).toBe(8);
+    expect(tamagotchi.happiness).toBe(9);
   });
 
   test('should refill tamagotchi food level', () => {
@@ -106,7 +106,7 @@ describe('Tamagotchi', () => {
     tamagotchi.bedTime();
     tamagotchi.play();
     expect(tamagotchi.busy).toBe(true);
-    expect(tamagotchi.happiness).toBe(8);
+    expect(tamagotchi.happiness).toBe(9);
     jest.advanceTimersByTime(1000*2 +1);
     tamagotchi.play();
     expect(tamagotchi.happiness).toBe(10);
