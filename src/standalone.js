@@ -61,6 +61,16 @@ export function checkLevel(Tamagotchi) {
   setInterval(() => {
     Tamagotchi.level++;
     $("#currentLevel").html(Tamagotchi.level);
+    if (Tamagotchi.level >= 10 && Tamagotchi.name === "squirtle") {
+      let evolvedImg = "https://static.pokemonpets.com/images/monsters-images-800-800/8-Wartortle.png";
+      $("#choiceImg").attr('src', evolvedImg);
+    } else if (Tamagotchi.level >= 10 && Tamagotchi.name === "charmander") {
+      let evolvedImg = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png";
+      $("#choiceImg").attr('src', evolvedImg);
+    } else if (Tamagotchi.level >= 10 && Tamagotchi.name === "bulbasaur") {
+      let evolvedImg = "https://cdn.bulbagarden.net/upload/thumb/7/73/002Ivysaur.png/250px-002Ivysaur.png";
+      $("#choiceImg").attr('src', evolvedImg);
+    }
   }, 1000*10);
 }
 

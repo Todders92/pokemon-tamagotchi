@@ -69,23 +69,6 @@ $(document).ready(function() {
         }
       };
 
-      // let gifRequest = new XMLHttpRequest();
-      // const gifURL = `api.giphy.com/v1/stickers/random?api_key=${process.env.API_KEY}`; 
-
-      // gifRequest.onreadystatechange = function() {
-      //   if (this.readyState === 4 && this.status === 200) {
-      //     const gifResponse = JSON.parse(this.responseText);
-      //     getGifElements(gifResponse);
-      //   }
-      // };
-
-      // request.open("GET", gifURL, true);
-      // request.send();
-
-      // const getGifElements = function(gifResponse) {
-      //   $("img#gif").attr('src', `${gifResponse.url}`);
-      // };
-
       displayStats(choice);
       checkLevel(tamagotchi);
       timePlayed(tamagotchi);
