@@ -10,6 +10,8 @@ export class Tamagotchi {
     this.lifeTime = 0;
     this.potions = 1;
     this.candies = 1;
+    this.firstEvolved = false;
+    this.secondEvolved = false;
   }
 
   getHungry() {
@@ -94,6 +96,16 @@ export class Tamagotchi {
       this.candies--;
       this.level++;
     }
+  }
+
+  checkCurrentLevel() {
+    setInterval (() => {
+      if (this.level === 10) {
+        this.firstEvolved = true;
+      } else if (this.level === 20) {
+        this.secondEvolved = true;
+      }
+    }, 500);
   }
 
 }

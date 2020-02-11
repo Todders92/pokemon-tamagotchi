@@ -108,3 +108,71 @@ export function addLevel(Tamagotchi) {
     Tamagotchi.level++;
   }, 1000*10);
 }
+
+export function checkEvolve(Tamagotchi, choiceURL, choice, prefix) {
+  setInterval(() => {
+    if(Tamagotchi.firstEvolved === true) {
+      Tamagotchi.firstEvolved = false;
+      let secondRequest = new XMLHttpRequest();
+      if (choice === "squirtle") {
+        choiceURL = `https://pokeapi.co/api/v2/pokemon/wartortle/`;
+        prefix = "s";
+      } else if (choice === "charmander") {
+        choiceURL = `https://pokeapi.co/api/v2/pokemon/charmeleon/`;
+        prefix = "c";
+      } else if (choice === "bulbasaur") {
+        choiceURL = `https://pokeapi.co/api/v2/pokemon/ivysaur/`;
+        prefix = "b";
+      }
+      secondRequest.onreadystatechange = function() {
+        if(this.readyState === 4 && this.status === 200) {
+          const secondResponse = JSON.parse(this.responseText);
+          getElements(secondResponse);
+        }
+      };
+      
+      secondRequest.open("GET", choiceURL ,true);
+      secondRequest.send();
+    
+      const getElements = function(secondResponse) {
+        $(`#${prefix}-name`).html(secondResponse.name);
+        $(`#${prefix}-type`).html(secondResponse.types[0].type.name);
+        $(`#${prefix}-weight`).html(secondResponse.weight);
+        for(let i = 0; i < secondResponse.moves.length; i++) {
+          $(`#${prefix}-moves`).append(`<li>${secondResponse.moves[i].move.name}</li>`);
+        }
+      };
+    } else if(Tamagotchi.secondEvolved === true) {
+      Tamagotchi.secondEvolved = false;
+      let thirdRequest = new XMLHttpRequest();
+      if (choice === "squirtle") {
+        choiceURL = `https://pokeapi.co/api/v2/pokemon/blastoise/`;
+        prefix = "s";
+      } else if (choice === "charmander") {
+        choiceURL = `https://pokeapi.co/api/v2/pokemon/charizard/`;
+        prefix = "c";
+      } else if (choice === "bulbasaur") {
+        choiceURL = `https://pokeapi.co/api/v2/pokemon/venusaur/`;
+        prefix = "b";
+      }
+      thirdRequest.onreadystatechange = function() {
+        if(this.readyState === 4 && this.status === 200) {
+          const thirdResponse = JSON.parse(this.responseText);
+          getElements(thirdResponse);
+        }
+      };
+      
+      thirdRequest.open("GET", choiceURL ,true);
+      thirdRequest.send();
+    
+      const getElements = function(thirdResponse) {
+        $(`#${prefix}-name`).html(thirdResponse.name);
+        $(`#${prefix}-type`).html(thirdResponse.types[0].type.name);
+        $(`#${prefix}-weight`).html(thirdResponse.weight);
+        for(let i = 0; i < thirdResponse.moves.length; i++) {
+          $(`#${prefix}-moves`).append(`<li>${thirdResponse.moves[i].move.name}</li>`);
+        }
+      };
+    }
+  }, 1000);
+}
