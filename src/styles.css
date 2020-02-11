@@ -137,6 +137,7 @@ h3 {
 }
 
 button#potion {
+  background-color: transparent;
   background-image: url("https://vignette.wikia.nocookie.net/pokemongo/images/7/7a/Potion.png/revision/latest/scale-to-width-down/340?cb=20160717150053");
   background-size: cover;
   background-repeat: no-repeat;
@@ -156,6 +157,7 @@ button#potion {
 }
   
 button#candy {
+  background-color: transparent;
   background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0ab12834-cebb-4832-80fc-780aad043d90/d8nyvh0-36d37aca-c3ea-4a1c-b6b7-32d704657046.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBhYjEyODM0LWNlYmItNDgzMi04MGZjLTc4MGFhZDA0M2Q5MFwvZDhueXZoMC0zNmQzN2FjYS1jM2VhLTRhMWMtYjZiNy0zMmQ3MDQ2NTcwNDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.aRsKcHyoGgDGUEp9CiML2jduLgEV2cc2xuZZMRE1cEU");
   background-size: cover;
   background-repeat: no-repeat;
