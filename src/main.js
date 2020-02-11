@@ -1,5 +1,5 @@
 import { Tamagotchi } from './tamagotchi.js';
-import { updateStatus, endGame, displayStats, checkLevel, timePlayed, addPotion } from './standalone.js';
+import { updateStatus, endGame, displayStats, checkLevel, timePlayed, addPotion, addCandy } from './standalone.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -135,11 +135,15 @@ $(document).ready(function() {
       checkLevel(tamagotchi);
       timePlayed(tamagotchi);
       addPotion(tamagotchi);
+      addCandy(tamagotchi);
 
-      $("#potion").on('click', 'button', function() {
-        console.log(tamagotchi.potions);
+      $("#extras").on('click', 'button#potion', function() {
         tamagotchi.usePotion();
-        console.log(tamagotchi.potions);
+        $(this).hide();
+      });
+
+      $("#extras").on('click', 'button#candy', function() {
+        tamagotchi.useCandy();
         $(this).hide();
       });
 

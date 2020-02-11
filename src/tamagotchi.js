@@ -9,6 +9,7 @@ export class Tamagotchi {
     this.level = 1;
     this.lifeTime = 0;
     this.potions = 1;
+    this.candies = 1;
   }
 
   getHungry() {
@@ -80,11 +81,18 @@ export class Tamagotchi {
   }
 
   usePotion() {
-    if(this.potions > 0) {
+    if (this.potions > 0) {
       this.potions--;
       this.foodLevel = 10;
       this.sleep = 10;
       this.happiness = 10;
+    }
+  }
+
+  useCandy() {
+    if (this.candies > 0) {
+      this.candies--;
+      this.level++;
     }
   }
 

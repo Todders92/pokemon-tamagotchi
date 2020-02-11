@@ -99,6 +99,7 @@ h3 {
   border: 2px solid black;
   border-radius: 10px;
   padding: 4%;
+  padding-left: 20%;
   margin-right: 4%;
 }
 
@@ -135,7 +136,7 @@ h3 {
   height: 150px;
 }
 
-#potion button.btn {
+button#potion {
   background-image: url("https://vignette.wikia.nocookie.net/pokemongo/images/7/7a/Potion.png/revision/latest/scale-to-width-down/340?cb=20160717150053");
   background-size: cover;
   background-repeat: no-repeat;
@@ -145,11 +146,21 @@ h3 {
   margin-left: 4%;
 }
 
-#potion {
+#extras {
   max-height: 500px;
   overflow-y: auto; 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+  
+button#candy {
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0ab12834-cebb-4832-80fc-780aad043d90/d8nyvh0-36d37aca-c3ea-4a1c-b6b7-32d704657046.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBhYjEyODM0LWNlYmItNDgzMi04MGZjLTc4MGFhZDA0M2Q5MFwvZDhueXZoMC0zNmQzN2FjYS1jM2VhLTRhMWMtYjZiNy0zMmQ3MDQ2NTcwNDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.aRsKcHyoGgDGUEp9CiML2jduLgEV2cc2xuZZMRE1cEU");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25%;
+  height: 25%;
+  margin-left: 4%;
 }

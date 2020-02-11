@@ -59,7 +59,6 @@ export function displayStats(Choice) {
 
 export function checkLevel(Tamagotchi) {
   setInterval(() => {
-    Tamagotchi.level++;
     $("#currentLevel").html(Tamagotchi.level);
     if (Tamagotchi.level >= 10 && Tamagotchi.level < 20 && Tamagotchi.name === "squirtle") {
       let evolvedImg = "https://static.pokemonpets.com/images/monsters-images-800-800/8-Wartortle.png";
@@ -80,7 +79,7 @@ export function checkLevel(Tamagotchi) {
       let finalImg = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png";
       $("#choiceImg").attr('src', finalImg);
     }
-  }, 1000*10);
+  }, 500);
 }
 
 export function timePlayed(Tamagotchi) {
@@ -92,7 +91,20 @@ export function timePlayed(Tamagotchi) {
 
 export function addPotion(Tamagotchi) {
   setInterval(() => {
-    $("#potion").append("<button class='btn btn-block'></button>");
+    $("#extras").append("<button id='potion' class='btn btn-block'></button>");
     Tamagotchi.potions++;
-  }, 1000);
+  }, 1000*45);
+}
+
+export function addCandy(Tamagotchi) {
+  setInterval(() => {
+    $("#extras").append("<button id='candy' class='btn btn-block'></button>");
+    Tamagotchi.candies++;
+  }, 1000*60);
+}
+
+export function addLevel(Tamagotchi) {
+  setInterval(()=> {
+    Tamagotchi.level++;
+  }, 1000*10);
 }
