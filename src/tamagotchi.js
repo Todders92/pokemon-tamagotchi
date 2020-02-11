@@ -12,6 +12,8 @@ export class Tamagotchi {
     this.candies = 1;
     this.firstEvolved = false;
     this.secondEvolved = false;
+    this.candiesUsed = 0;
+    this.potionsUsed = 0;
   }
 
   getHungry() {
@@ -71,7 +73,17 @@ export class Tamagotchi {
   checkAlive() {
     setInterval(() => {
       if ((this.sleep === 0 && this.happiness === 0) || (this.sleep === 0 && this.foodLevel === 0) || (this.happiness === 0 && this.foodLevel === 0)) {
-        this.alive = false;        
+        this.alive = false;
+        // let gameStats = [];
+        // let timePlayed = this.lifeTime;
+        // let highestLevel = this.level;
+        // let totalCandies = this.candiesUsed;
+        // let totalPotions = this.potionsUsed;
+        // gameStats.push(timePlayed);
+        // gameStats.push(highestLevel);
+        // gameStats.push(totalCandies);
+        // gameStats.push(totalPotions);
+        // return gameStats;       
       } else {
         this.alive = true;
       }
@@ -85,6 +97,7 @@ export class Tamagotchi {
   usePotion() {
     if (this.potions > 0) {
       this.potions--;
+      this.potionsUsed++;
       this.foodLevel = 10;
       this.sleep = 10;
       this.happiness = 10;
@@ -94,6 +107,7 @@ export class Tamagotchi {
   useCandy() {
     if (this.candies > 0) {
       this.candies--;
+      this.candiesUsed++;
       this.level++;
     }
   }
@@ -107,5 +121,4 @@ export class Tamagotchi {
       }
     }, 500);
   }
-
 }

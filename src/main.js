@@ -80,11 +80,11 @@ $(document).ready(function() {
       $("#game").show();
       $("#choiceImg").attr('src', img);
       updateStatus(tamagotchi);
-      endGame(tamagotchi);
       tamagotchi.getHungry();
       tamagotchi.getSad();
       tamagotchi.getTired();
       tamagotchi.checkAlive();
+      endGame(tamagotchi);
       $("button#feed").click(function() {
         tamagotchi.feed();
         if (tamagotchi.busy === true) {

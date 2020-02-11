@@ -41,8 +41,15 @@ export function updateStatus(Tamagotchi) {
 export function endGame(Tamagotchi) {
   setInterval(function() {
     if (Tamagotchi.alive === false) {
+      clearInterval(endGame);
+      clearInterval(addLevel);
+      clearInterval(timePlayed);
       $("#death").show();
       $("#game").hide();
+      $(".highest-level").html(Tamagotchi.level);
+      $(".time-played").html(Tamagotchi.lifeTime);
+      $(".total-potions").html(Tamagotchi.potionsUsed);
+      $(".total-candies").html(Tamagotchi.candiesUsed);
     }
   }, 1000);
 }
@@ -84,8 +91,10 @@ export function checkLevel(Tamagotchi) {
 
 export function timePlayed(Tamagotchi) {
   setInterval(() => {
-    Tamagotchi.lifeTime++;
-    $("#currentTime").html(Tamagotchi.lifeTime);
+    if (Tamagotchi.alive === true) {
+      Tamagotchi.lifeTime++;
+      $("#currentTime").html(Tamagotchi.lifeTime);
+    }
   }, 1000);
 }
 
@@ -105,7 +114,9 @@ export function addCandy(Tamagotchi) {
 
 export function addLevel(Tamagotchi) {
   setInterval(()=> {
-    Tamagotchi.level++;
+    if (Tamagotchi.alive === true) {
+      Tamagotchi.level++;
+    }
   }, 1000*10);
 }
 
