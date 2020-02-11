@@ -6,6 +6,8 @@ export class Tamagotchi {
     this.happiness = 10;
     this.busy = false;
     this.alive = true;
+    this.level = 1;
+    this.lifeTime = 0;
   }
 
   getHungry() {

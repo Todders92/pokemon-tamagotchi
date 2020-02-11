@@ -56,3 +56,17 @@ export function displayStats(Choice) {
     $("#info-charmander").show();
   }
 }
+
+export function checkLevel(Tamagotchi) {
+  setInterval(() => {
+    Tamagotchi.level++;
+    $("#currentLevel").html(Tamagotchi.level);
+  }, 1000*10);
+}
+
+export function timePlayed(Tamagotchi) {
+  setInterval(() => {
+    Tamagotchi.lifeTime++;
+    $("#currentTime").html(Tamagotchi.lifeTime);
+  }, 1000);
+}

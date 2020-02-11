@@ -1,5 +1,5 @@
 import { Tamagotchi } from './tamagotchi.js';
-import { updateStatus, endGame, displayStats } from './standalone.js';
+import { updateStatus, endGame, displayStats, checkLevel, timePlayed } from './standalone.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -68,6 +68,8 @@ $(document).ready(function() {
         }
       }
       displayStats(choice);
+      checkLevel(tamagotchi);
+      timePlayed(tamagotchi);
       $("#choices").hide();
       $("#game").show();
       $("#choiceImg").attr('src', img);

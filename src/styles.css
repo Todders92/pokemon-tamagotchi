@@ -98,16 +98,38 @@ h3 {
   text-align: left;
   border: 2px solid black;
   border-radius: 10px;
-  width: 80%;
-  margin: auto;
+  padding: 4%;
+}
+
+#info-squirtle p, #info-charmander p, #info-bulbasaur p {
+  margin: 0;
 }
 
 .busy {
-  background-color: #e2e2e29f;
+  background-color: #16530e;
   color: #111111;
 }
 
 .busy:hover {
-  background-color: #e2e2e29f;
+  background-color: #16530e;
   color: #111111;
+}
+
+#currentLevel, #time {
+  font-size: 3em;
+  color: white;
+  font-weight: bolder;
+  padding: 10px;
+  -webkit-text-stroke-color: #111111;
+  -webkit-text-stroke-width: 1.5px;
+}
+
+
+#time {
+  display: flex;
+  justify-content: center;
+}
+
+#emojis {
+  height: 150px;
 }
