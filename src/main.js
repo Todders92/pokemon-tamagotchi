@@ -1,59 +1,22 @@
 import { Tamagotchi } from './tamagotchi.js';
+import { updateStatus, endGame, displayStats } from './standalone.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
-function updateStatus(Tamagotchi) {
-  setInterval(function() {
-    if(Tamagotchi.foodLevel < 3) {
-      $("#foodDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-danger');
-      $("#mad").show();
-    } else if(Tamagotchi.foodLevel <= 6) {
-      $("#foodDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-warning');
-      $("#mad").show();
-    } else if(Tamagotchi.foodLevel > 6) {
-      $("#foodDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-success');
-      $("#mad").hide();
-    }
-    if(Tamagotchi.sleep < 3) {
-      $("#sleepDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-danger');
-      $("#crying").show();
-    } else if(Tamagotchi.sleep <= 6) {
-      $("#sleepDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-warning');
-      $("#crying").show();
-    } else if(Tamagotchi.sleep > 6) {
-      $("#sleepDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-success');
-      $("#crying").hide();
-    }
-    if(Tamagotchi.happiness < 3) {
-      $("#sadDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-danger');
-      $("#upset").show();
-    } else if(Tamagotchi.happiness <= 6) {
-      $("#sadDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-warning');
-      $("#upset").show();
-    } else if(Tamagotchi.happiness > 6) {
-      $("#sadDiv .progress-bar").attr('class', 'progress-bar progress-bar-striped progress-bar-animated bg-success');
-      $("#upset").hide();
-    }
-    $("#foodDiv .progress-bar").attr('style', `width: ${Tamagotchi.foodLevel*10}%`);
-    $("#sleepDiv .progress-bar").attr('style', `width: ${Tamagotchi.sleep*10}%`);
-    $("#sadDiv .progress-bar").attr('style', `width: ${Tamagotchi.happiness*10}%`);
-  }, 100);
-}
 
-function endGame(Tamagotchi) {
-  setInterval(function() {
-    if (Tamagotchi.alive === false) {
-      $("#death").show();
-      $("#game").hide();
-    }
-  }, 1000);
-}
+
+// https://pokeapi.co/api/v2/pokemon/squirtle/
 
 $(document).ready(function() {
   let choice;
   let img;
+  let choiceURL;
+  let prefix;
+  let request = new XMLHttpRequest();
+  
+  
   $(".card").on("click", function() {
     choice = this.id;
     $(this).addClass("clicked");
@@ -78,6 +41,33 @@ $(document).ready(function() {
     if(choice) {
       let tamagotchi = new Tamagotchi();
       tamagotchi.addName(choice);
+      if (choice === "squirtle") {
+        choiceURL = `https://pokeapi.co/api/v2/pokemon/squirtle/`;
+        prefix = "s";
+      } else if (choice === "charmander") {
+        choiceURL = `https://pokeapi.co/api/v2/pokemon/charmander/`;
+        prefix = "c";
+      } else if (choice === "bulbasaur") {
+        choiceURL = `https://pokeapi.co/api/v2/pokemon/bulbasaur/`;
+        prefix = "b";
+      }
+      request.onreadystatechange = function() {
+        if(this.readyState === 4 && this.status === 200) {
+          const response = JSON.parse(this.responseText);
+          getElements(response);
+        }
+      }
+      request.open("GET", choiceURL ,true);
+      request.send();
+    
+      const getElements = function(response) {
+        $(`#${prefix}-type`).html(response.types[0].type.name);
+        $(`#${prefix}-weight`).html(response.weight);
+        for(let i = 0; i < response.moves.length; i++) {
+          $(`#${prefix}-moves`).append(`<li>${response.moves[i].move.name}</li>`);
+        }
+      }
+      displayStats(choice);
       $("#choices").hide();
       $("#game").show();
       $("#choiceImg").attr('src', img);

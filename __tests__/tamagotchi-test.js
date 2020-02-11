@@ -16,19 +16,19 @@ describe('Tamagotchi', () => {
     expect(tamagotchi.foodLevel).toBe(10);
   });
 
-  test('should check that food level is decremented every second', () => {
+  test('should check that food level is decremented every 3 seconds', () => {
     tamagotchi.getHungry();
-    jest.advanceTimersByTime(1000 + 1);
+    jest.advanceTimersByTime(1000*3 + 1);
     expect(tamagotchi.foodLevel).toBe(9);
   });
 
-  test('should decrement sleep level after every second', () => {
+  test('should decrement sleep level after every 3 seconds', () => {
     tamagotchi.getTired();
-    jest.advanceTimersByTime(1000 + 1);
+    jest.advanceTimersByTime(1000*3 + 1);
     expect(tamagotchi.sleep).toBe(9);
   });
 
-  test('should check that happiness is decremented every second', () => {
+  test('should check that happiness by 2 is decremented every two seconds', () => {
     tamagotchi.getSad();
     jest.advanceTimersByTime(1000*2 + 1);
     expect(tamagotchi.happiness).toBe(8);
@@ -78,7 +78,7 @@ describe('Tamagotchi', () => {
 
   test('should prevent feed methods from triggering if busy', () => {
     tamagotchi.getHungry();
-    jest.advanceTimersByTime(1000 + 1);
+    jest.advanceTimersByTime(1000*3 + 1);
     tamagotchi.bedTime();
     tamagotchi.feed();
     expect(tamagotchi.busy).toBe(true);
@@ -90,7 +90,7 @@ describe('Tamagotchi', () => {
 
   test('should prevent bedtime method from triggering if busy', () => {
     tamagotchi.getTired();
-    jest.advanceTimersByTime(1000 +1);
+    jest.advanceTimersByTime(1000*3 +1);
     tamagotchi.feed();
     tamagotchi.bedTime();
     expect(tamagotchi.busy).toBe(true);
@@ -115,7 +115,7 @@ describe('Tamagotchi', () => {
   test('should kill tamagotchi when two of three status bars are 0', () => {
     tamagotchi.getHungry();
     tamagotchi.getSad();
-    jest.advanceTimersByTime(1000*10 +1);
+    jest.advanceTimersByTime(1000*10*3 +1);
     tamagotchi.checkAlive();
     jest.advanceTimersByTime(500 +1);
     expect(tamagotchi.alive).toBe(false);
@@ -124,7 +124,7 @@ describe('Tamagotchi', () => {
   test('should check that user cannot feed, play with, or rest tamagotchi after it dies', () => {
     tamagotchi.getHungry();
     tamagotchi.getSad();
-    jest.advanceTimersByTime(1000*10 +1);
+    jest.advanceTimersByTime(1000*10*3 +1);
     tamagotchi.checkAlive();
     jest.advanceTimersByTime(500 +1);
     tamagotchi.feed();

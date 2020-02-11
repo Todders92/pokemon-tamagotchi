@@ -13,7 +13,7 @@ export class Tamagotchi {
       if(this.foodLevel > 0) {
         this.foodLevel -= 1;
       }
-    }, 1000);
+    }, 1000*3);
   }
 
   getTired() {
@@ -21,7 +21,7 @@ export class Tamagotchi {
       if(this.sleep > 0) {
         this.sleep -= 1;
       }
-    }, 1000);
+    }, 1000*3);
   }
 
   getSad() {
