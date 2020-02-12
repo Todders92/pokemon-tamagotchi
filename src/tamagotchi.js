@@ -74,16 +74,6 @@ export class Tamagotchi {
     setInterval(() => {
       if ((this.sleep === 0 && this.happiness === 0) || (this.sleep === 0 && this.foodLevel === 0) || (this.happiness === 0 && this.foodLevel === 0)) {
         this.alive = false;
-        // let gameStats = [];
-        // let timePlayed = this.lifeTime;
-        // let highestLevel = this.level;
-        // let totalCandies = this.candiesUsed;
-        // let totalPotions = this.potionsUsed;
-        // gameStats.push(timePlayed);
-        // gameStats.push(highestLevel);
-        // gameStats.push(totalCandies);
-        // gameStats.push(totalPotions);
-        // return gameStats;       
       } else {
         this.alive = true;
       }

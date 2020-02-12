@@ -61,6 +61,7 @@ body {
 .card:hover, .clicked {
   background-color: #16530e;
   opacity: 0.9;
+  cursor: pointer;
 }
 
 h1 {
@@ -76,7 +77,6 @@ h3 {
 
 #death {
   padding: 20px;
-  color: #f5f5f5;
   font-weight: bold;
 }
 
@@ -171,4 +171,14 @@ button#candy {
   width: 25%;
   height: 25%;
   margin-left: 4%;
+}
+
+#stats {
+  margin-left: 20%;
+  background-color: #16530e;
+  color: #f5f5f5;
+  border: 2px solid #111111;
+  border-radius: 10px;
+  padding: 10%;
+  width: 60%;
 }

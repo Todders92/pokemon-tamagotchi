@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Tamagotchi</title>
+  <title>Pokégotchi</title>
 </head>
 <body>
   <div class="container">
     <div id="choices">
-      <h1>Tamagotchi</h1>
+      <h1>Pokégotchi</h1>
       <div class="row">
         <div id="charmander" class="card">
           <h3>Charmander</h3>
@@ -92,11 +92,13 @@
       <div class="row">
         <img class="col-md-6" src="https://www.freepngimg.com/thumb/skull/73523-and-cartoon-skull-crossbones-free-transparent-image-hd.png" alt="A photo of dead character.">
         <div class="col-md-6">
-          <h3>Game stats:</h3>
-          <p>Highest level: <span class="highest-level"></span></p>
-          <p>Time played: <span class="time-played"></span></p>
-          <p>Potions used: <span class="total-potions"></span></p>
-          <p>Candies used: <span class="total-candies"></span></p>
+          <div id="stats">
+            <h3>Game stats:</h3>
+            <p>Highest level: <span class="highest-level"></span></p>
+            <p>Time played: <span class="time-played"></span> seconds</p>
+            <p>Potions used: <span class="total-potions"></span></p>
+            <p>Candies used: <span class="total-candies"></span></p>
+          </div>
         </div>
       </div>
       <button id="reset" class="btn btn-block">Reset</button>
